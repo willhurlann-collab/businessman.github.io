@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Businessman — Explore ton avenir</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #07111f;
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 24px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #4da3ff;
+    }
+
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 90px 20px 60px;
+      max-width: 950px;
+      margin: auto;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(77,163,255,0.12);
+      color: #69b1ff;
+      border: 1px solid rgba(77,163,255,0.25);
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.05;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: #4da3ff;
+    }
+
+    .hero p {
+      color: #aebbd0;
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .search-box {
+      max-width: 750px;
+      margin: 40px auto 0;
+      display: flex;
+      gap: 12px;
+      background: #0d1b2d;
+      padding: 10px;
+      border: 1px solid #20334d;
+      border-radius: 16px;
+    }
+
+    .search-box input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 15px;
+      font-size: 16px;
+    }
+
+    .search-box input::placeholder {
+      color: #718096;
+    }
+
+    button {
+      background: #4da3ff;
+      border: none;
+      color: white;
+      font-weight: bold;
+      padding: 0 25px;
+      border-radius: 11px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      background: #368fe8;
+    }
+
+    .examples {
+      margin-top: 20px;
+      color: #718096;
+      font-size: 13px;
+    }
+
+    .examples span {
+      color: #9eb4cf;
+      cursor: pointer;
+      margin: 0 5px;
+    }
+
+    .examples span:hover {
+      color: #4da3ff;
+    }
+
+    #result {
+      display: none;
+      max-width: 1100px;
+      margin: 30px auto 80px;
+      padding: 0 20px;
+    }
+
+    .result-header {
+      margin-bottom: 25px;
+    }
+
+    .result-header h2 {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .result-header p {
+      color: #8fa2ba;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #0d1b2d;
+      border: 1px solid #20334d;
+      border-radius: 16px;
+      padding: 25px;
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .card p,
+    .card li {
+      color: #aebbd0;
+      line-height: 1.7;
+    }
+
+    .card ul {
+      padding-left: 20px;
+    }
+
+    .salary {
+      grid-column: span 2;
+      background: linear-gradient(135deg, #0d1b2d, #102945);
+    }
+
+    .salary-number {
+      font-size: 30px;
+      font-weight: bold;
+      color: #4da3ff;
+      margin-top: 10px;
+    }
+
+    .notice {
+      margin-top: 20px;
+      color: #718096;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+      padding: 30px 20px;
+      color: #66758a;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 20px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      button {
+        height: 50px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .salary {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">BUSINESS<span>MAN</span></div>
+
+  <nav>
+    <a href="#">Accueil</a>
+    <a href="#result">Métiers</a>
+    <a href="#">À propos</a>
+  </nav>
+</header>
+
+<section class="hero">
+
+  <div class="badge">
+    EXPLORE TON AVENIR PROFESSIONNEL
+  </div>
+
+  <h1>
+    Avant de choisir un métier,<br>
+    <span>comprends son avenir.</span>
+  </h1>
+
+  <p>
+    Businessman t'aide à explorer une profession :
+    études, débouchés, rémunération, avantages,
+    contraintes et perspectives d'évolution.
+  </p>
+
+  <div class="search-box">
+    <input
+      id="jobInput"
+      type="text"
+      placeholder="Exemple : médecin, ingénieur, développeur..."
+    >
+
+    <button onclick="searchJob()">
+      Explorer
+    </button>
+  </div>
+
+  <div class="examples">
+    Essayez :
+    <span onclick="quickSearch('Médecin')">Médecin</span> ·
+    <span onclick="quickSearch('Ingénieur')">Ingénieur</span> ·
+    <span onclick="quickSearch('Développeur')">Développeur</span>
+  </div>
+
+</section>
+
+<section id="result">
+
+  <div class="result-header">
+    <h2 id="jobTitle">Métier</h2>
+    <p>
+      Voici une première analyse de cette profession.
+    </p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card salary">
+      <h3>💰 Rémunération</h3>
+      <div class="salary-number" id="salary">
+        —
+      </div>
+
+      <p class="notice">
+        Exemple indicatif pour la démonstration.
+        La rémunération réelle dépend du pays,
+        du niveau d'expérience, du secteur et de l'employeur.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🎓 Études & formation</h3>
+      <p id="studies">
+        —
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🚀 Débouchés</h3>
+      <p id="opportunities">
+        —
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>✅ Avantages</h3>
+      <ul id="advantages"></ul>
+    </div>
+
+    <div class="card">
+      <h3>⚠️ Contraintes</h3>
+      <ul id="disadvantages"></ul>
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  Businessman — Comprendre aujourd'hui pour mieux construire demain.
+</footer>
+
+<script>
+
+const jobs = {
+
+  "médecin": {
+    salary: "Variable selon le pays, la spécialité et l'expérience",
+    studies: "Études médicales longues, suivies d'une spécialisation selon la carrière choisie.",
+    opportunities: "Hôpitaux, cliniques, cabinets, recherche, santé publique et spécialités médicales.",
+    advantages: [
+      "Forte utilité sociale",
+      "Nombreuses spécialisations",
+      "Possibilités d'évolution"
+    ],
+    disadvantages: [
+      "Études longues",
+      "Responsabilités importantes",
+      "Horaires parfois difficiles"
+    ]
+  },
+
+  "ingénieur": {
+    salary: "Variable selon le domaine, le pays et l'expérience",
+    studies: "Formation scientifique et technique, généralement suivie d'une spécialisation.",
+    opportunities: "Industrie, informatique, énergie, télécommunications, construction, recherche et conseil.",
+    advantages: [
+      "Nombreux domaines possibles",
+      "Possibilités internationales",
+      "Évolution vers des postes de responsabilité"
+    ],
+    disadvantages: [
+      "Formation exigeante",
+      "Veille technologique nécessaire",
+      "Pression possible selon le secteur"
+    ]
+  },
+
+  "développeur": {
+    salary: "Variable selon les compétences, le marché et l'expérience",
+    studies: "Formation en informatique, développement logiciel ou apprentissage spécialisé.",
+    opportunities: "Applications, sites web, logiciels, cybersécurité, intelligence artificielle et freelance.",
+    advantages: [
+      "Domaine en évolution",
+      "Possibilité de travailler à distance",
+      "Nombreuses spécialisations"
+    ],
+    disadvantages: [
+      "Apprentissage continu",
+      "Travail prolongé devant un écran",
+      "Marché compétitif"
+    ]
+  }
+
+};
+
+function searchJob() {
+
+  const input = document
+    .getElementById("jobInput")
+    .value
+    .trim();
+
+  if (!input) {
+    alert("Entre d'abord un métier.");
+    return;
+  }
+
+  const key = input.toLowerCase();
+
+  const job = jobs[key] || {
+
+    salary: "Données non disponibles dans cette version de démonstration.",
+
+    studies:
+      "Les formations dépendent du métier choisi et du pays.",
+
+    opportunities:
+      "Les débouchés seront analysés dans une future version avec une base de données plus complète.",
+
+    advantages: [
+      "Analyse personnalisée à venir",
+      "Informations adaptées au métier"
+    ],
+
+    disadvantages: [
+      "Données encore limitées",
+      "Recherche plus approfondie nécessaire"
+    ]
+
+  };
+
+  document.getElementById("jobTitle").textContent = input;
+
+  document.getElementById("salary").textContent = job.salary;
+
+  document.getElementById("studies").textContent = job.studies;
+
+  document.getElementById("opportunities").textContent =
+    job.opportunities;
+
+  document.getElementById("advantages").innerHTML =
+    job.advantages.map(item => `<li>${item}</li>`).join("");
+
+  document.getElementById("disadvantages").innerHTML =
+    job.disadvantages.map(item => `<li>${item}</li>`).join("");
+
+  document.getElementById("result").style.display = "block";
+
+  document.getElementById("result")
+    .scrollIntoView({ behavior: "smooth" });
+}
+
+function quickSearch(job) {
+
+  document.getElementById("jobInput").value = job;
+
+  searchJob();
+
+}
+
+document
+  .getElementById("jobInput")
+  .addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+      searchJob();
+    }
+
+  });
+
+</script>
+
+</body>
+</html>
