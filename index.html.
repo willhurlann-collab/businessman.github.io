@@ -1,488 +1,337 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Businessman — Explore ton avenir</title>
+    <title>Businessman — Explorez votre avenir professionnel</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-      background: #07111f;
-      color: #ffffff;
-      min-height: 100vh;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            min-height: 100vh;
+        }
 
-    header {
-      padding: 24px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
+        header {
+            text-align: center;
+            padding: 60px 20px 30px;
+        }
 
-    .logo {
-      font-size: 25px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
 
-    .logo span {
-      color: #4da3ff;
-    }
+        header h1 span {
+            color: #38bdf8;
+        }
 
-    nav a {
-      color: #cbd5e1;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 14px;
-    }
+        header p {
+            max-width: 700px;
+            margin: auto;
+            color: #cbd5e1;
+            font-size: 18px;
+            line-height: 1.6;
+        }
 
-    nav a:hover {
-      color: white;
-    }
+        .container {
+            width: 90%;
+            max-width: 750px;
+            margin: 30px auto 70px;
+        }
 
-    .hero {
-      text-align: center;
-      padding: 90px 20px 60px;
-      max-width: 950px;
-      margin: auto;
-    }
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 35px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
 
-    .badge {
-      display: inline-block;
-      background: rgba(77,163,255,0.12);
-      color: #69b1ff;
-      border: 1px solid rgba(77,163,255,0.25);
-      padding: 8px 14px;
-      border-radius: 30px;
-      font-size: 13px;
-      margin-bottom: 22px;
-    }
+        .card h2 {
+            margin-bottom: 10px;
+        }
 
-    h1 {
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 1.05;
-      margin-bottom: 25px;
-    }
+        .intro {
+            color: #cbd5e1;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
 
-    h1 span {
-      color: #4da3ff;
-    }
+        .question {
+            margin-bottom: 25px;
+        }
 
-    .hero p {
-      color: #aebbd0;
-      font-size: 18px;
-      line-height: 1.7;
-      max-width: 700px;
-      margin: auto;
-    }
+        label {
+            display: block;
+            margin-bottom: 9px;
+            font-weight: bold;
+        }
 
-    .search-box {
-      max-width: 750px;
-      margin: 40px auto 0;
-      display: flex;
-      gap: 12px;
-      background: #0d1b2d;
-      padding: 10px;
-      border: 1px solid #20334d;
-      border-radius: 16px;
-    }
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #475569;
+            border-radius: 10px;
+            background: #0f172a;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
 
-    .search-box input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      outline: none;
-      color: white;
-      padding: 15px;
-      font-size: 16px;
-    }
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #38bdf8;
+        }
 
-    .search-box input::placeholder {
-      color: #718096;
-    }
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
 
-    button {
-      background: #4da3ff;
-      border: none;
-      color: white;
-      font-weight: bold;
-      padding: 0 25px;
-      border-radius: 11px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
+        .metier {
+            border: 2px solid #38bdf8;
+        }
 
-    button:hover {
-      transform: translateY(-2px);
-      background: #368fe8;
-    }
+        button {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            background: #38bdf8;
+            color: #082f49;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
 
-    .examples {
-      margin-top: 20px;
-      color: #718096;
-      font-size: 13px;
-    }
+        button:hover {
+            background: #7dd3fc;
+            transform: translateY(-2px);
+        }
 
-    .examples span {
-      color: #9eb4cf;
-      cursor: pointer;
-      margin: 0 5px;
-    }
+        #resultat {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 15px;
+            background: #0f172a;
+            border: 1px solid #334155;
+        }
 
-    .examples span:hover {
-      color: #4da3ff;
-    }
+        #resultat h3 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
 
-    #result {
-      display: none;
-      max-width: 1100px;
-      margin: 30px auto 80px;
-      padding: 0 20px;
-    }
+        .info {
+            margin: 8px 0;
+            color: #cbd5e1;
+        }
 
-    .result-header {
-      margin-bottom: 25px;
-    }
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+        }
 
-    .result-header h2 {
-      font-size: 34px;
-      margin-bottom: 8px;
-    }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 36px;
+            }
 
-    .result-header p {
-      color: #8fa2ba;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: #0d1b2d;
-      border: 1px solid #20334d;
-      border-radius: 16px;
-      padding: 25px;
-    }
-
-    .card h3 {
-      margin-bottom: 15px;
-      font-size: 18px;
-    }
-
-    .card p,
-    .card li {
-      color: #aebbd0;
-      line-height: 1.7;
-    }
-
-    .card ul {
-      padding-left: 20px;
-    }
-
-    .salary {
-      grid-column: span 2;
-      background: linear-gradient(135deg, #0d1b2d, #102945);
-    }
-
-    .salary-number {
-      font-size: 30px;
-      font-weight: bold;
-      color: #4da3ff;
-      margin-top: 10px;
-    }
-
-    .notice {
-      margin-top: 20px;
-      color: #718096;
-      font-size: 12px;
-      line-height: 1.6;
-    }
-
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      text-align: center;
-      padding: 30px 20px;
-      color: #66758a;
-      font-size: 13px;
-    }
-
-    @media (max-width: 700px) {
-      header {
-        padding: 20px;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .hero {
-        padding-top: 60px;
-      }
-
-      .search-box {
-        flex-direction: column;
-      }
-
-      button {
-        height: 50px;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .salary {
-        grid-column: span 1;
-      }
-    }
-  </style>
+            .card {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">BUSINESS<span>MAN</span></div>
+    <h1><span>Businessman</span></h1>
 
-  <nav>
-    <a href="#">Accueil</a>
-    <a href="#result">Métiers</a>
-    <a href="#">À propos</a>
-  </nav>
+    <p>
+        Explorez votre avenir professionnel avant de vous engager.
+        Découvrez les opportunités, les avantages, les contraintes,
+        les salaires, les débouchés et les possibilités d'évolution.
+    </p>
 </header>
 
-<section class="hero">
-
-  <div class="badge">
-    EXPLORE TON AVENIR PROFESSIONNEL
-  </div>
-
-  <h1>
-    Avant de choisir un métier,<br>
-    <span>comprends son avenir.</span>
-  </h1>
-
-  <p>
-    Businessman t'aide à explorer une profession :
-    études, débouchés, rémunération, avantages,
-    contraintes et perspectives d'évolution.
-  </p>
-
-  <div class="search-box">
-    <input
-      id="jobInput"
-      type="text"
-      placeholder="Exemple : médecin, ingénieur, développeur..."
-    >
-
-    <button onclick="searchJob()">
-      Explorer
-    </button>
-  </div>
-
-  <div class="examples">
-    Essayez :
-    <span onclick="quickSearch('Médecin')">Médecin</span> ·
-    <span onclick="quickSearch('Ingénieur')">Ingénieur</span> ·
-    <span onclick="quickSearch('Développeur')">Développeur</span>
-  </div>
-
-</section>
-
-<section id="result">
-
-  <div class="result-header">
-    <h2 id="jobTitle">Métier</h2>
-    <p>
-      Voici une première analyse de cette profession.
-    </p>
-  </div>
-
-  <div class="cards">
-
-    <div class="card salary">
-      <h3>💰 Rémunération</h3>
-      <div class="salary-number" id="salary">
-        —
-      </div>
-
-      <p class="notice">
-        Exemple indicatif pour la démonstration.
-        La rémunération réelle dépend du pays,
-        du niveau d'expérience, du secteur et de l'employeur.
-      </p>
-    </div>
+<main class="container">
 
     <div class="card">
-      <h3>🎓 Études & formation</h3>
-      <p id="studies">
-        —
-      </p>
+
+        <h2>Construisons votre projet professionnel</h2>
+
+        <p class="intro">
+            Répondez à quelques questions afin que Businessman puisse
+            mieux comprendre votre profil et votre projet.
+        </p>
+
+        <!-- QUESTION 1 -->
+        <div class="question">
+            <label for="nom">1. Comment souhaitez-vous être appelé ?</label>
+
+            <input
+                type="text"
+                id="nom"
+                placeholder="Exemple : Will"
+                required
+            >
+        </div>
+
+        <!-- QUESTION 2 -->
+        <div class="question">
+            <label for="age">2. Quel âge avez-vous ?</label>
+
+            <input
+                type="number"
+                id="age"
+                min="13"
+                max="100"
+                placeholder="Exemple : 20"
+                required
+            >
+        </div>
+
+        <!-- QUESTION 3 -->
+        <div class="question">
+            <label for="projet">
+                3. Que prévoyez-vous de faire dans les prochaines années ?
+            </label>
+
+            <textarea
+                id="projet"
+                placeholder="Exemple : poursuivre mes études, créer une entreprise, travailler dans la technologie..."
+            ></textarea>
+        </div>
+
+        <!-- QUESTION 4 -->
+        <div class="question">
+            <label for="motivation">
+                4. Qu'est-ce qui vous motive principalement ?
+            </label>
+
+            <select id="motivation">
+                <option value="">Sélectionnez une motivation</option>
+                <option>Gagner un bon revenu</option>
+                <option>Avoir un métier passionnant</option>
+                <option>Aider les autres</option>
+                <option>Créer mon entreprise</option>
+                <option>Innover et créer</option>
+                <option>Avoir une carrière internationale</option>
+                <option>Avoir une grande stabilité professionnelle</option>
+                <option>Autre</option>
+            </select>
+        </div>
+
+        <!-- QUESTION 5 -->
+        <div class="question">
+            <label for="metier">
+                5. Quel métier souhaitez-vous explorer ?
+            </label>
+
+            <input
+                class="metier"
+                type="text"
+                id="metier"
+                placeholder="Exemple : ingénieur en intelligence artificielle"
+                required
+            >
+        </div>
+
+        <button onclick="analyserProjet()">
+            Analyser mon projet
+        </button>
+
+        <div id="resultat">
+            <h3>Votre projet</h3>
+
+            <p class="info">
+                Bonjour <strong id="resultatNom"></strong> !
+            </p>
+
+            <p class="info">
+                Âge : <strong id="resultatAge"></strong> ans
+            </p>
+
+            <p class="info">
+                Projet :
+                <strong id="resultatProjet"></strong>
+            </p>
+
+            <p class="info">
+                Motivation :
+                <strong id="resultatMotivation"></strong>
+            </p>
+
+            <p class="info">
+                Métier recherché :
+                <strong id="resultatMetier"></strong>
+            </p>
+
+            <br>
+
+            <p>
+                Votre profil est prêt à être analysé.
+                La prochaine étape sera d'afficher les
+                informations concernant ce métier :
+                salaire, études, avantages, contraintes,
+                débouchés et évolution.
+            </p>
+        </div>
+
     </div>
 
-    <div class="card">
-      <h3>🚀 Débouchés</h3>
-      <p id="opportunities">
-        —
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>✅ Avantages</h3>
-      <ul id="advantages"></ul>
-    </div>
-
-    <div class="card">
-      <h3>⚠️ Contraintes</h3>
-      <ul id="disadvantages"></ul>
-    </div>
-
-  </div>
-
-</section>
+</main>
 
 <footer>
-  Businessman — Comprendre aujourd'hui pour mieux construire demain.
+    © 2026 Businessman — Explorez votre avenir professionnel
 </footer>
+
 
 <script>
 
-const jobs = {
+function analyserProjet() {
 
-  "médecin": {
-    salary: "Variable selon le pays, la spécialité et l'expérience",
-    studies: "Études médicales longues, suivies d'une spécialisation selon la carrière choisie.",
-    opportunities: "Hôpitaux, cliniques, cabinets, recherche, santé publique et spécialités médicales.",
-    advantages: [
-      "Forte utilité sociale",
-      "Nombreuses spécialisations",
-      "Possibilités d'évolution"
-    ],
-    disadvantages: [
-      "Études longues",
-      "Responsabilités importantes",
-      "Horaires parfois difficiles"
-    ]
-  },
+    const nom = document.getElementById("nom").value;
+    const age = document.getElementById("age").value;
+    const projet = document.getElementById("projet").value;
+    const motivation = document.getElementById("motivation").value;
+    const metier = document.getElementById("metier").value;
 
-  "ingénieur": {
-    salary: "Variable selon le domaine, le pays et l'expérience",
-    studies: "Formation scientifique et technique, généralement suivie d'une spécialisation.",
-    opportunities: "Industrie, informatique, énergie, télécommunications, construction, recherche et conseil.",
-    advantages: [
-      "Nombreux domaines possibles",
-      "Possibilités internationales",
-      "Évolution vers des postes de responsabilité"
-    ],
-    disadvantages: [
-      "Formation exigeante",
-      "Veille technologique nécessaire",
-      "Pression possible selon le secteur"
-    ]
-  },
-
-  "développeur": {
-    salary: "Variable selon les compétences, le marché et l'expérience",
-    studies: "Formation en informatique, développement logiciel ou apprentissage spécialisé.",
-    opportunities: "Applications, sites web, logiciels, cybersécurité, intelligence artificielle et freelance.",
-    advantages: [
-      "Domaine en évolution",
-      "Possibilité de travailler à distance",
-      "Nombreuses spécialisations"
-    ],
-    disadvantages: [
-      "Apprentissage continu",
-      "Travail prolongé devant un écran",
-      "Marché compétitif"
-    ]
-  }
-
-};
-
-function searchJob() {
-
-  const input = document
-    .getElementById("jobInput")
-    .value
-    .trim();
-
-  if (!input) {
-    alert("Entre d'abord un métier.");
-    return;
-  }
-
-  const key = input.toLowerCase();
-
-  const job = jobs[key] || {
-
-    salary: "Données non disponibles dans cette version de démonstration.",
-
-    studies:
-      "Les formations dépendent du métier choisi et du pays.",
-
-    opportunities:
-      "Les débouchés seront analysés dans une future version avec une base de données plus complète.",
-
-    advantages: [
-      "Analyse personnalisée à venir",
-      "Informations adaptées au métier"
-    ],
-
-    disadvantages: [
-      "Données encore limitées",
-      "Recherche plus approfondie nécessaire"
-    ]
-
-  };
-
-  document.getElementById("jobTitle").textContent = input;
-
-  document.getElementById("salary").textContent = job.salary;
-
-  document.getElementById("studies").textContent = job.studies;
-
-  document.getElementById("opportunities").textContent =
-    job.opportunities;
-
-  document.getElementById("advantages").innerHTML =
-    job.advantages.map(item => `<li>${item}</li>`).join("");
-
-  document.getElementById("disadvantages").innerHTML =
-    job.disadvantages.map(item => `<li>${item}</li>`).join("");
-
-  document.getElementById("result").style.display = "block";
-
-  document.getElementById("result")
-    .scrollIntoView({ behavior: "smooth" });
-}
-
-function quickSearch(job) {
-
-  document.getElementById("jobInput").value = job;
-
-  searchJob();
-
-}
-
-document
-  .getElementById("jobInput")
-  .addEventListener("keydown", function(event) {
-
-    if (event.key === "Enter") {
-      searchJob();
+    if (!nom || !age || !metier) {
+        alert("Veuillez renseigner votre nom, votre âge et le métier que vous souhaitez explorer.");
+        return;
     }
 
-  });
+    document.getElementById("resultatNom").textContent = nom;
+    document.getElementById("resultatAge").textContent = age;
+    document.getElementById("resultatProjet").textContent =
+        projet || "Non renseigné";
+
+    document.getElementById("resultatMotivation").textContent =
+        motivation || "Non renseignée";
+
+    document.getElementById("resultatMetier").textContent = metier;
+
+    document.getElementById("resultat").style.display = "block";
+}
 
 </script>
 
