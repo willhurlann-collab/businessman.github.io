@@ -1,336 +1,1324 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Businessman — Explorez votre avenir professionnel</title>
+<title>Businessman — Construis ton avenir</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: white;
-            min-height: 100vh;
-        }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-        header {
-            text-align: center;
-            padding: 60px 20px 30px;
-        }
+body {
+  background:
+    radial-gradient(circle at top right, #123b68 0%, transparent 35%),
+    linear-gradient(135deg, #06101d, #091a2d);
+  color: white;
+  min-height: 100vh;
+}
 
-        header h1 {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
+/* HEADER */
 
-        header h1 span {
-            color: #38bdf8;
-        }
+header {
+  height: 75px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+}
 
-        header p {
-            max-width: 700px;
-            margin: auto;
-            color: #cbd5e1;
-            font-size: 18px;
-            line-height: 1.6;
-        }
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
 
-        .container {
-            width: 90%;
-            max-width: 750px;
-            margin: 30px auto 70px;
-        }
+.logo span {
+  color: #4da3ff;
+}
 
-        .card {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 20px;
-            padding: 35px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        }
+nav a {
+  color: #b7c5d8;
+  text-decoration: none;
+  margin-left: 25px;
+  font-size: 14px;
+}
 
-        .card h2 {
-            margin-bottom: 10px;
-        }
+nav a:hover {
+  color: white;
+}
 
-        .intro {
-            color: #cbd5e1;
-            margin-bottom: 30px;
-            line-height: 1.5;
-        }
+/* ACCUEIL */
 
-        .question {
-            margin-bottom: 25px;
-        }
+#home {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+  padding: 90px 20px;
+}
 
-        label {
-            display: block;
-            margin-bottom: 9px;
-            font-weight: bold;
-        }
+.badge {
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 30px;
+  background: rgba(77,163,255,0.12);
+  border: 1px solid rgba(77,163,255,0.3);
+  color: #69b1ff;
+  font-size: 13px;
+  margin-bottom: 25px;
+}
 
-        input,
-        textarea,
-        select {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #475569;
-            border-radius: 10px;
-            background: #0f172a;
-            color: white;
-            font-size: 16px;
-            outline: none;
-        }
+#home h1 {
+  font-size: clamp(42px, 7vw, 75px);
+  line-height: 1.05;
+  margin-bottom: 25px;
+}
 
-        input:focus,
-        textarea:focus,
-        select:focus {
-            border-color: #38bdf8;
-        }
+#home h1 span {
+  color: #4da3ff;
+}
 
-        textarea {
-            min-height: 110px;
-            resize: vertical;
-        }
+#home p {
+  max-width: 700px;
+  margin: auto;
+  color: #aebbd0;
+  font-size: 18px;
+  line-height: 1.7;
+}
 
-        .metier {
-            border: 2px solid #38bdf8;
-        }
+.main-button {
+  margin-top: 35px;
+  background: #4da3ff;
+  color: white;
+  border: none;
+  padding: 16px 30px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
 
-        button {
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 10px;
-            background: #38bdf8;
-            color: #082f49;
-            font-size: 17px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s;
-        }
+.main-button:hover {
+  transform: translateY(-3px);
+  background: #368fe8;
+}
 
-        button:hover {
-            background: #7dd3fc;
-            transform: translateY(-2px);
-        }
+/* FEATURES */
 
-        #resultat {
-            display: none;
-            margin-top: 30px;
-            padding: 25px;
-            border-radius: 15px;
-            background: #0f172a;
-            border: 1px solid #334155;
-        }
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 70px;
+}
 
-        #resultat h3 {
-            color: #38bdf8;
-            margin-bottom: 15px;
-        }
+.feature {
+  background: rgba(13,27,45,0.8);
+  border: 1px solid #20334d;
+  padding: 25px;
+  border-radius: 16px;
+}
 
-        .info {
-            margin: 8px 0;
-            color: #cbd5e1;
-        }
+.feature .icon {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #64748b;
-        }
+.feature h3 {
+  margin-bottom: 8px;
+}
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 36px;
-            }
+.feature p {
+  font-size: 14px !important;
+}
 
-            .card {
-                padding: 25px;
-            }
-        }
-    </style>
+/* QUESTIONNAIRE */
+
+#quiz {
+  display: none;
+  max-width: 800px;
+  margin: auto;
+  padding: 55px 20px 80px;
+}
+
+.quiz-top {
+  display: flex;
+  justify-content: space-between;
+  color: #9eb0c5;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.progress {
+  height: 7px;
+  background: #17283c;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 35px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 10%;
+  background: #4da3ff;
+  transition: 0.3s;
+}
+
+.question-card {
+  background: #0d1b2d;
+  border: 1px solid #20334d;
+  border-radius: 20px;
+  padding: 35px;
+}
+
+.question-card h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.question-card .subtitle {
+  color: #8295ac;
+  margin-bottom: 25px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  background: #081522;
+  color: white;
+  border: 1px solid #29405b;
+  border-radius: 11px;
+  padding: 15px;
+  font-size: 16px;
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #4da3ff;
+}
+
+.options {
+  display: grid;
+  gap: 12px;
+}
+
+.option {
+  padding: 17px;
+  border: 1px solid #29405b;
+  background: #081522;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.option:hover {
+  border-color: #4da3ff;
+  transform: translateX(3px);
+}
+
+.option.selected {
+  background: rgba(77,163,255,0.15);
+  border-color: #4da3ff;
+}
+
+.quiz-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.quiz-buttons button {
+  border: none;
+  border-radius: 10px;
+  padding: 14px 25px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.previous {
+  background: #17283c;
+  color: white;
+}
+
+.next {
+  background: #4da3ff;
+  color: white;
+}
+
+/* ANALYSE */
+
+#loading {
+  display: none;
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.loader {
+  width: 55px;
+  height: 55px;
+  border: 5px solid #20334d;
+  border-top-color: #4da3ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 25px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* RESULTAT */
+
+#result {
+  display: none;
+  max-width: 1100px;
+  margin: auto;
+  padding: 55px 20px 80px;
+}
+
+.result-intro {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.result-intro small {
+  color: #69b1ff;
+}
+
+.result-intro h1 {
+  font-size: 45px;
+  margin: 10px 0;
+}
+
+.result-intro p {
+  color: #9fb0c4;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.result-card {
+  background: #0d1b2d;
+  border: 1px solid #20334d;
+  border-radius: 17px;
+  padding: 25px;
+}
+
+.result-card.full {
+  grid-column: span 2;
+}
+
+.result-card h3 {
+  margin-bottom: 14px;
+  font-size: 18px;
+}
+
+.result-card p,
+.result-card li {
+  color: #aebbd0;
+  line-height: 1.7;
+}
+
+.result-card ul {
+  padding-left: 20px;
+}
+
+.highlight {
+  background:
+    linear-gradient(135deg, rgba(77,163,255,0.18), rgba(13,27,45,0.9));
+}
+
+.job-name {
+  font-size: 32px;
+  color: #4da3ff;
+  font-weight: bold;
+}
+
+.salary-box {
+  font-size: 18px;
+  color: #69b1ff;
+}
+
+.restart {
+  display: block;
+  margin: 35px auto 0;
+  background: #4da3ff;
+  color: white;
+  border: none;
+  padding: 15px 28px;
+  border-radius: 11px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+  padding: 30px;
+  color: #65768b;
+  font-size: 13px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px) {
+
+  header {
+    padding: 0 20px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  #home {
+    padding-top: 65px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .question-card {
+    padding: 25px;
+  }
+
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-card.full {
+    grid-column: span 1;
+  }
+
+  .result-intro h1 {
+    font-size: 34px;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1><span>Businessman</span></h1>
 
-    <p>
-        Explorez votre avenir professionnel avant de vous engager.
-        Découvrez les opportunités, les avantages, les contraintes,
-        les salaires, les débouchés et les possibilités d'évolution.
-    </p>
+  <div class="logo">
+    BUSINESS<span>MAN</span>
+  </div>
+
+  <nav>
+    <a href="#" onclick="showHome()">Accueil</a>
+    <a href="#" onclick="startQuiz()">Explorer</a>
+  </nav>
+
 </header>
 
-<main class="container">
 
-    <div class="card">
+<!-- ACCUEIL -->
 
-        <h2>Construisons votre projet professionnel</h2>
+<section id="home">
 
-        <p class="intro">
-            Répondez à quelques questions afin que Businessman puisse
-            mieux comprendre votre profil et votre projet.
-        </p>
+  <div class="badge">
+    🚀 TON AVENIR COMMENCE ICI
+  </div>
 
-        <!-- QUESTION 1 -->
-        <div class="question">
-            <label for="nom">1. Comment souhaitez-vous être appelé ?</label>
+  <h1>
+    Découvre le métier<br>
+    qui correspond à <span>ton profil.</span>
+  </h1>
 
-            <input
-                type="text"
-                id="nom"
-                placeholder="Exemple : Will"
-                required
-            >
-        </div>
+  <p>
+    Businessman analyse tes intérêts, tes compétences,
+    tes études et tes objectifs pour t'aider à explorer
+    les métiers qui peuvent correspondre à ton projet.
+  </p>
 
-        <!-- QUESTION 2 -->
-        <div class="question">
-            <label for="age">2. Quel âge avez-vous ?</label>
+  <button class="main-button" onclick="startQuiz()">
+    Commencer l'analyse →
+  </button>
 
-            <input
-                type="number"
-                id="age"
-                min="13"
-                max="100"
-                placeholder="Exemple : 20"
-                required
-            >
-        </div>
 
-        <!-- QUESTION 3 -->
-        <div class="question">
-            <label for="projet">
-                3. Que prévoyez-vous de faire dans les prochaines années ?
-            </label>
+  <div class="features">
 
-            <textarea
-                id="projet"
-                placeholder="Exemple : poursuivre mes études, créer une entreprise, travailler dans la technologie..."
-            ></textarea>
-        </div>
+    <div class="feature">
+      <div class="icon">🧠</div>
+      <h3>Ton profil</h3>
+      <p>
+        Réponds à quelques questions sur tes goûts,
+        tes compétences et tes objectifs.
+      </p>
+    </div>
 
-        <!-- QUESTION 4 -->
-        <div class="question">
-            <label for="motivation">
-                4. Qu'est-ce qui vous motive principalement ?
-            </label>
+    <div class="feature">
+      <div class="icon">🎯</div>
+      <h3>Ton orientation</h3>
+      <p>
+        Découvre des métiers correspondant
+        aux informations que tu as données.
+      </p>
+    </div>
 
-            <select id="motivation">
-                <option value="">Sélectionnez une motivation</option>
-                <option>Gagner un bon revenu</option>
-                <option>Avoir un métier passionnant</option>
-                <option>Aider les autres</option>
-                <option>Créer mon entreprise</option>
-                <option>Innover et créer</option>
-                <option>Avoir une carrière internationale</option>
-                <option>Avoir une grande stabilité professionnelle</option>
-                <option>Autre</option>
-            </select>
-        </div>
+    <div class="feature">
+      <div class="icon">🚀</div>
+      <h3>Ton avenir</h3>
+      <p>
+        Découvre les études, débouchés,
+        avantages et contraintes du métier.
+      </p>
+    </div>
 
-        <!-- QUESTION 5 -->
-        <div class="question">
-            <label for="metier">
-                5. Quel métier souhaitez-vous explorer ?
-            </label>
+  </div>
 
-            <input
-                class="metier"
-                type="text"
-                id="metier"
-                placeholder="Exemple : ingénieur en intelligence artificielle"
-                required
-            >
-        </div>
+</section>
 
-        <button onclick="analyserProjet()">
-            Analyser mon projet
-        </button>
 
-        <div id="resultat">
-            <h3>Votre projet</h3>
+<!-- QUESTIONNAIRE -->
 
-            <p class="info">
-                Bonjour <strong id="resultatNom"></strong> !
-            </p>
+<section id="quiz">
 
-            <p class="info">
-                Âge : <strong id="resultatAge"></strong> ans
-            </p>
+  <div class="quiz-top">
+    <span id="questionNumber">Question 1 sur 10</span>
+    <span id="percentage">10%</span>
+  </div>
 
-            <p class="info">
-                Projet :
-                <strong id="resultatProjet"></strong>
-            </p>
+  <div class="progress">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
 
-            <p class="info">
-                Motivation :
-                <strong id="resultatMotivation"></strong>
-            </p>
+  <div class="question-card">
 
-            <p class="info">
-                Métier recherché :
-                <strong id="resultatMetier"></strong>
-            </p>
+    <h2 id="questionTitle"></h2>
 
-            <br>
+    <p class="subtitle" id="questionSubtitle"></p>
 
-            <p>
-                Votre profil est prêt à être analysé.
-                La prochaine étape sera d'afficher les
-                informations concernant ce métier :
-                salaire, études, avantages, contraintes,
-                débouchés et évolution.
-            </p>
-        </div>
+    <div id="questionContent"></div>
+
+    <div class="quiz-buttons">
+
+      <button
+        class="previous"
+        onclick="previousQuestion()">
+        ← Retour
+      </button>
+
+      <button
+        class="next"
+        onclick="nextQuestion()">
+        Continuer →
+      </button>
 
     </div>
 
-</main>
+  </div>
+
+</section>
+
+
+<!-- ANALYSE -->
+
+<section id="loading">
+
+  <div class="loader"></div>
+
+  <h2>Analyse de ton profil...</h2>
+
+  <p style="color:#8295ac;margin-top:10px;">
+    Businessman prépare ton orientation.
+  </p>
+
+</section>
+
+
+<!-- RESULTAT -->
+
+<section id="result">
+
+  <div class="result-intro">
+
+    <small>ANALYSE TERMINÉE</small>
+
+    <h1>
+      Ton profil professionnel
+    </h1>
+
+    <p id="resultDescription"></p>
+
+  </div>
+
+
+  <div class="result-grid">
+
+    <div class="result-card highlight">
+
+      <h3>🎯 Métier correspondant</h3>
+
+      <div class="job-name" id="resultJob">
+        —
+      </div>
+
+      <p id="jobReason">
+        —
+      </p>
+
+    </div>
+
+
+    <div class="result-card">
+
+      <h3>🎓 Études & formation</h3>
+
+      <p id="resultStudies">
+        —
+      </p>
+
+    </div>
+
+
+    <div class="result-card">
+
+      <h3>💼 Débouchés</h3>
+
+      <p id="resultOpportunities">
+        —
+      </p>
+
+    </div>
+
+
+    <div class="result-card">
+
+      <h3>💰 Rémunération</h3>
+
+      <p class="salary-box" id="resultSalary">
+        —
+      </p>
+
+    </div>
+
+
+    <div class="result-card">
+
+      <h3>✅ Avantages</h3>
+
+      <ul id="resultAdvantages"></ul>
+
+    </div>
+
+
+    <div class="result-card">
+
+      <h3>⚠️ Contraintes</h3>
+
+      <ul id="resultDisadvantages"></ul>
+
+    </div>
+
+
+    <div class="result-card full">
+
+      <h3>🚀 Évolution professionnelle</h3>
+
+      <p id="resultEvolution">
+        —
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <button class="restart" onclick="restartQuiz()">
+    🔄 Refaire l'analyse
+  </button>
+
+</section>
+
 
 <footer>
-    © 2026 Businessman — Explorez votre avenir professionnel
+
+  Businessman — Comprendre aujourd'hui pour mieux construire demain.
+
 </footer>
 
 
 <script>
 
-function analyserProjet() {
+/* =========================
+   DONNÉES DU QUESTIONNAIRE
+========================= */
 
-    const nom = document.getElementById("nom").value;
-    const age = document.getElementById("age").value;
-    const projet = document.getElementById("projet").value;
-    const motivation = document.getElementById("motivation").value;
-    const metier = document.getElementById("metier").value;
+let currentQuestion = 0;
 
-    if (!nom || !age || !metier) {
-        alert("Veuillez renseigner votre nom, votre âge et le métier que vous souhaitez explorer.");
-        return;
+let answers = {};
+
+const questions = [
+
+  {
+    title: "Comment t'appelles-tu ?",
+    subtitle: "Entre ton prénom.",
+    type: "text",
+    key: "name",
+    placeholder: "Exemple : Hariel"
+  },
+
+  {
+    title: "Quel est ton âge ?",
+    subtitle: "Cela permet de mieux comprendre ton parcours.",
+    type: "number",
+    key: "age",
+    placeholder: "Exemple : 17"
+  },
+
+  {
+    title: "Quel est ton niveau d'études ?",
+    subtitle: "Choisis ton niveau actuel.",
+    type: "options",
+    key: "study",
+    options: [
+      "Collège",
+      "Lycée",
+      "Baccalauréat",
+      "Licence",
+      "Master",
+      "Autre"
+    ]
+  },
+
+  {
+    title: "Quelles matières préfères-tu ?",
+    subtitle: "Choisis celle qui te correspond le mieux.",
+    type: "options",
+    key: "subject",
+    options: [
+      "Mathématiques",
+      "Sciences",
+      "Informatique",
+      "Langues",
+      "Littérature",
+      "Économie",
+      "Arts / dessin"
+    ]
+  },
+
+  {
+    title: "Quel domaine t'intéresse le plus ?",
+    subtitle: "Sélectionne ton principal centre d'intérêt.",
+    type: "options",
+    key: "domain",
+    options: [
+      "Construction / architecture",
+      "Informatique / technologie",
+      "Santé",
+      "Commerce / business",
+      "Droit",
+      "Éducation",
+      "Création / design"
+    ]
+  },
+
+  {
+    title: "Quel type de travail préfères-tu ?",
+    subtitle: "Imagine ton environnement professionnel idéal.",
+    type: "options",
+    key: "environment",
+    options: [
+      "Bureau",
+      "Chantier / terrain",
+      "Laboratoire",
+      "Hôpital",
+      "Ordinateur",
+      "Travail avec le public",
+      "Travail créatif"
+    ]
+  },
+
+  {
+    title: "Quelle compétence te décrit le mieux ?",
+    subtitle: "Choisis ta principale qualité.",
+    type: "options",
+    key: "skill",
+    options: [
+      "Je suis logique",
+      "Je suis créatif",
+      "Je suis organisé",
+      "Je communique facilement",
+      "Je résous les problèmes",
+      "Je dirige facilement",
+      "J'aime apprendre"
+    ]
+  },
+
+  {
+    title: "Quel métier envisages-tu actuellement ?",
+    subtitle: "Même si tu n'es pas encore sûr.",
+    type: "text",
+    key: "dream",
+    placeholder: "Exemple : architecte"
+  },
+
+  {
+    title: "Quel est ton objectif professionnel ?",
+    subtitle: "Qu'aimerais-tu accomplir ?",
+    type: "options",
+    key: "goal",
+    options: [
+      "Créer ma propre entreprise",
+      "Avoir une carrière internationale",
+      "Aider les autres",
+      "Créer des projets",
+      "Travailler dans la technologie",
+      "Avoir un métier stable",
+      "Devenir expert dans mon domaine"
+    ]
+  },
+
+  {
+    title: "Dans quel pays souhaites-tu principalement travailler ?",
+    subtitle: "Cette information peut influencer les études et le marché du travail.",
+    type: "text",
+    key: "country",
+    placeholder: "Exemple : Congo, France, Russie..."
+  }
+
+];
+
+
+/* =========================
+   AFFICHAGE DES QUESTIONS
+========================= */
+
+function displayQuestion() {
+
+  const q = questions[currentQuestion];
+
+  document.getElementById("questionNumber").textContent =
+    "Question " + (currentQuestion + 1) +
+    " sur " + questions.length;
+
+  const percentage =
+    Math.round(((currentQuestion + 1) / questions.length) * 100);
+
+  document.getElementById("percentage").textContent =
+    percentage + "%";
+
+  document.getElementById("progressBar").style.width =
+    percentage + "%";
+
+  document.getElementById("questionTitle").textContent =
+    q.title;
+
+  document.getElementById("questionSubtitle").textContent =
+    q.subtitle;
+
+  const content =
+    document.getElementById("questionContent");
+
+  content.innerHTML = "";
+
+  if (q.type === "text" || q.type === "number") {
+
+    const input = document.createElement("input");
+
+    input.type = q.type;
+
+    input.placeholder = q.placeholder;
+
+    input.id = "currentAnswer";
+
+    input.value = answers[q.key] || "";
+
+    content.appendChild(input);
+
+  }
+
+  if (q.type === "options") {
+
+    const optionsDiv = document.createElement("div");
+
+    optionsDiv.className = "options";
+
+    q.options.forEach(option => {
+
+      const div = document.createElement("div");
+
+      div.className = "option";
+
+      div.textContent = option;
+
+      if (answers[q.key] === option) {
+        div.classList.add("selected");
+      }
+
+      div.onclick = function() {
+
+        answers[q.key] = option;
+
+        document
+          .querySelectorAll(".option")
+          .forEach(el =>
+            el.classList.remove("selected")
+          );
+
+        div.classList.add("selected");
+
+      };
+
+      optionsDiv.appendChild(div);
+
+    });
+
+    content.appendChild(optionsDiv);
+
+  }
+
+}
+
+
+/* =========================
+   COMMENCER
+========================= */
+
+function startQuiz() {
+
+  document.getElementById("home").style.display = "none";
+
+  document.getElementById("result").style.display = "none";
+
+  document.getElementById("loading").style.display = "none";
+
+  document.getElementById("quiz").style.display = "block";
+
+  currentQuestion = 0;
+
+  displayQuestion();
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+/* =========================
+   QUESTION SUIVANTE
+========================= */
+
+function nextQuestion() {
+
+  const q = questions[currentQuestion];
+
+  if (q.type === "text" || q.type === "number") {
+
+    const input =
+      document.getElementById("currentAnswer");
+
+    if (!input.value.trim()) {
+
+      alert("Réponds à la question avant de continuer.");
+
+      return;
     }
 
-    document.getElementById("resultatNom").textContent = nom;
-    document.getElementById("resultatAge").textContent = age;
-    document.getElementById("resultatProjet").textContent =
-        projet || "Non renseigné";
+    answers[q.key] = input.value.trim();
 
-    document.getElementById("resultatMotivation").textContent =
-        motivation || "Non renseignée";
+  }
 
-    document.getElementById("resultatMetier").textContent = metier;
+  if (q.type === "options" && !answers[q.key]) {
 
-    document.getElementById("resultat").style.display = "block";
+    alert("Choisis une réponse avant de continuer.");
+
+    return;
+
+  }
+
+  if (currentQuestion < questions.length - 1) {
+
+    currentQuestion++;
+
+    displayQuestion();
+
+  } else {
+
+    showLoading();
+
+  }
+
+}
+
+
+/* =========================
+   QUESTION PRÉCÉDENTE
+========================= */
+
+function previousQuestion() {
+
+  if (currentQuestion > 0) {
+
+    currentQuestion--;
+
+    displayQuestion();
+
+  }
+
+}
+
+
+/* =========================
+   ANALYSE
+========================= */
+
+function showLoading() {
+
+  document.getElementById("quiz").style.display = "none";
+
+  document.getElementById("loading").style.display = "block";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+  setTimeout(generateResult, 1800);
+
+}
+
+
+/* =========================
+   GÉNÉRATION DU RÉSULTAT
+========================= */
+
+function generateResult() {
+
+  document.getElementById("loading").style.display = "none";
+
+  document.getElementById("result").style.display = "block";
+
+  let job = "Professionnel du domaine choisi";
+
+  let studies =
+    "La formation dépendra du métier choisi, du pays et du niveau de spécialisation recherché.";
+
+  let opportunities =
+    "Les débouchés dépendent du marché du travail, du pays, de l'expérience et des compétences.";
+
+  let salary =
+    "La rémunération doit être vérifiée selon le pays, le secteur, l'expérience et l'employeur.";
+
+  let evolution =
+    "Avec de l'expérience, il est généralement possible d'évoluer vers des postes spécialisés, de responsabilité ou de management.";
+
+  let advantages = [
+    "Possibilités d'évolution",
+    "Développement de compétences",
+    "Plusieurs environnements professionnels possibles"
+  ];
+
+  let disadvantages = [
+    "Formation et apprentissage nécessaires",
+    "Marché du travail variable",
+    "Les conditions dépendent du secteur et du pays"
+  ];
+
+  let reason =
+    "Ton profil présente plusieurs éléments qui correspondent à ce domaine.";
+
+
+  /* ARCHITECTURE */
+
+  if (
+    answers.domain === "Construction / architecture" ||
+    (answers.subject === "Arts / dessin" &&
+     answers.environment === "Travail créatif")
+  ) {
+
+    job = "Architecte";
+
+    studies =
+      "Études supérieures en architecture, avec apprentissage du dessin technique, de la conception, de la représentation et des techniques de construction.";
+
+    opportunities =
+      "Agences d'architecture, bureaux d'études, entreprises de construction, urbanisme, design et projets indépendants.";
+
+    salary =
+      "Variable selon le pays, le statut, l'expérience, la spécialisation et l'employeur.";
+
+    evolution =
+      "Architecte junior → architecte confirmé → chef de projet → responsable d'agence ou création de son propre cabinet.";
+
+    advantages = [
+      "Création et conception de projets",
+      "Possibilité de travailler sur des projets variés",
+      "Évolution vers la gestion de projets"
+    ];
+
+    disadvantages = [
+      "Études exigeantes",
+      "Délais et contraintes de projet",
+      "Responsabilités techniques importantes"
+    ];
+
+    reason =
+      "Tes intérêts pour la construction, la conception ou la créativité correspondent à plusieurs aspects du métier d'architecte.";
+
+  }
+
+
+  /* INGÉNIEUR */
+
+  else if (
+    answers.domain === "Construction / architecture" &&
+    (
+      answers.subject === "Mathématiques" ||
+      answers.skill === "Je résous les problèmes"
+    )
+  ) {
+
+    job = "Ingénieur en génie civil";
+
+    studies =
+      "Formation supérieure en génie civil : structures, matériaux, mécanique, géotechnique, hydraulique et gestion des projets de construction.";
+
+    opportunities =
+      "Bureaux d'études, entreprises de BTP, chantiers, infrastructures, routes, bâtiments, ouvrages d'art et bureaux de contrôle.";
+
+    salary =
+      "Variable selon le pays, l'expérience, la spécialité et l'employeur.";
+
+    evolution =
+      "Ingénieur junior → ingénieur confirmé → chef de projet → responsable technique ou directeur de projets.";
+
+    advantages = [
+      "Nombreux domaines dans le BTP",
+      "Participation à des projets importants",
+      "Possibilités d'évolution technique et managériale"
+    ];
+
+    disadvantages = [
+      "Formation scientifique exigeante",
+      "Responsabilités techniques",
+      "Certains postes nécessitent des déplacements"
+    ];
+
+    reason =
+      "Ton intérêt pour la construction associé aux mathématiques ou à la résolution de problèmes correspond au génie civil.";
+
+  }
+
+
+  /* INFORMATIQUE */
+
+  else if (
+    answers.domain === "Informatique / technologie" ||
+    answers.environment === "Ordinateur"
+  ) {
+
+    job = "Développeur informatique";
+
+    studies =
+      "Formation en informatique, développement logiciel ou apprentissage spécialisé des langages de programmation.";
+
+    opportunities =
+      "Applications mobiles, sites web, logiciels, cybersécurité, intelligence artificielle, entreprises technologiques et travail indépendant.";
+
+    salary =
+      "Variable selon le pays, les compétences, la spécialisation et l'expérience.";
+
+    evolution =
+      "Développeur junior → développeur confirmé → développeur senior → lead developer, architecte logiciel ou responsable technique.";
+
+    advantages = [
+      "Domaine technologique en évolution",
+      "Nombreuses spécialisations",
+      "Possibilités de travail à distance selon l'employeur"
+    ];
+
+    disadvantages = [
+      "Apprentissage continu",
+      "Travail prolongé devant un écran",
+      "Marché compétitif"
+    ];
+
+    reason =
+      "Ton intérêt pour la technologie et l'environnement numérique correspond au développement informatique.";
+
+  }
+
+
+  /* SANTÉ */
+
+  else if (answers.domain === "Santé") {
+
+    job = "Professionnel de santé";
+
+    studies =
+      "Formation spécialisée dans le domaine de santé choisi. La durée et les conditions dépendent du métier et du pays.";
+
+    opportunities =
+      "Hôpitaux, cliniques, centres de santé, recherche, santé publique et structures spécialisées.";
+
+    salary =
+      "Variable selon le métier, le pays, la spécialité, l'expérience et l'employeur.";
+
+    evolution =
+      "Spécialisation → expérience professionnelle → responsabilités techniques, administratives ou spécialisées.";
+
+    advantages = [
+      "Contribution à la santé des personnes",
+      "Nombreuses spécialisations",
+      "Possibilités d'évolution"
+    ];
+
+    disadvantages = [
+      "Formation parfois longue",
+      "Responsabilités importantes",
+      "Conditions de travail parfois exigeantes"
+    ];
+
+    reason =
+      "Ton intérêt pour la santé indique que les professions médicales et paramédicales pourraient correspondre à ton profil.";
+
+  }
+
+
+  /* BUSINESS */
+
+  else if (answers.domain === "Commerce / business") {
+
+    job = "Entrepreneur / Responsable d'entreprise";
+
+    studies =
+      "Formations possibles en gestion, commerce, économie, finance ou entrepreneuriat, complétées par l'expérience.";
+
+    opportunities =
+      "Création d'entreprise, commerce, gestion, marketing, finance, vente et développement de projets.";
+
+    salary =
+      "Très variable selon l'activité, le marché, l'expérience et les résultats de l'entreprise.";
+
+    evolution =
+      "Projet → petite entreprise → développement de l'activité → management et expansion.";
+
+    advantages = [
+      "Possibilité de créer ses propres projets",
+      "Autonomie dans certaines situations",
+      "Nombreux secteurs d'activité"
+    ];
+
+    disadvantages = [
+      "Risque financier possible",
+      "Responsabilités importantes",
+      "Nécessité de développer plusieurs compétences"
+    ];
+
+    reason =
+      "Ton intérêt pour le commerce et les projets correspond à l'univers entrepreneurial.";
+
+  }
+
+
+  document.getElementById("resultJob").textContent = job;
+
+  document.getElementById("resultDescription").textContent =
+    "Bonjour " +
+    (answers.name || "") +
+    " ! Voici une orientation basée sur les réponses que tu as données.";
+
+  document.getElementById("jobReason").textContent =
+    reason;
+
+  document.getElementById("resultStudies").textContent =
+    studies;
+
+  document.getElementById("resultOpportunities").textContent =
+    opportunities;
+
+  document.getElementById("resultSalary").textContent =
+    salary;
+
+  document.getElementById("resultEvolution").textContent =
+    evolution;
+
+  document.getElementById("resultAdvantages").innerHTML =
+    advantages
+      .map(item => "<li>" + item + "</li>")
+      .join("");
+
+  document.getElementById("resultDisadvantages").innerHTML =
+    disadvantages
+      .map(item => "<li>" + item + "</li>")
+      .join("");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+/* =========================
+   RECOMMENCER
+========================= */
+
+function restartQuiz() {
+
+  answers = {};
+
+  currentQuestion = 0;
+
+  document.getElementById("result").style.display = "none";
+
+  document.getElementById("home").style.display = "block";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+/* =========================
+   ACCUEIL
+========================= */
+
+function showHome() {
+
+  document.getElementById("quiz").style.display = "none";
+
+  document.getElementById("result").style.display = "none";
+
+  document.getElementById("loading").style.display = "none";
+
+  document.getElementById("home").style.display = "block";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
 }
 
 </script>
